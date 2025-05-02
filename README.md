@@ -1,6 +1,8 @@
 # env
 A Go module for easily reading environment variables into memory
 
+> go get github.com/clickermonkey/env
+
 ```go
 type TokenConfig struct {
   Token         string        `env:"APP_TOKEN"`

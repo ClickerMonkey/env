@@ -1,11 +1,13 @@
 # env
 A Go module for easily reading environment variables into memory
 
+> go get github.com/clickermonkey/env
+
 ```go
 type TokenConfig struct {
   Token         string        `env:"APP_TOKEN"`
-  TokenLifetime time.Duration `env:"APP_TOKEN_LIFETIME" env-default="2h"`
-  TokenMax      uint64        `env:"APP_TOKEN_MAX" env-default="32"`
+  TokenLifetime time.Duration `env:"APP_TOKEN_LIFETIME" env-default:"2h"`
+  TokenMax      uint64        `env:"APP_TOKEN_MAX" env-default:"32"`
 }
 
 tokenConfig, err := env.Get[TokenConfig]()

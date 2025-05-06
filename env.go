@@ -123,10 +123,30 @@ func Get[T any]() (T, error) {
 	return cachedTyped, nil
 }
 
+// Gets the cached or loads the environment variables for the given type.
+// If an error occurs a panic will be thrown.
+func Must[T any]() T {
+	gotten, err := Get[T]()
+	if err != nil {
+		panic(err)
+	}
+	return gotten
+}
+
 // Loads the type from environment variables.
 func Load[T any]() (T, error) {
 	var parsed T
 	return parsed, Parse(&parsed)
+}
+
+// Loads the type from environment variables.
+// If an error occurs a panic will be thrown.
+func MustLoad[T any]() T {
+	loaded, err := Load[T]()
+	if err != nil {
+		panic(err)
+	}
+	return loaded
 }
 
 // Loads the value (expected to be pointer) from environment variables.

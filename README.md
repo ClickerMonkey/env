@@ -17,10 +17,14 @@ tokenConfig, err := env.Get[TokenConfig]()
 - Handles embedded structs and struct fields
 - Caches parsed object (use `env.Get[T]()`)
 - Supports custom unmarshalling & parsing functions
+    - `env.Unmarshaller`
+    - `encoding.TextUnmarshaler`
+    - `env.RegisterParser[T](fn env.Parser)`
 - Supports multiple environment variables per field
 - Supports default values
-- Supports custom delimiters for arrays & slices
-- Supports post-validation logic
+- Supports custom delimiters for arrays & slices 
+- Supports post-validation logic 
+    - `env.Validator`
 - Supports nested variable names
     ```go
     type Connection struct {
